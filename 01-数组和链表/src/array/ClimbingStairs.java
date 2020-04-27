@@ -44,25 +44,32 @@ public class ClimbingStairs {
 
     public int climbStairs(int n) {
 
-        int f1 = 1;
-        int f2 = 2;
-        int fn = 0;
+        // int f1 = 1;
+        // int f2 = 2;
+        // int fn = 0;
+        //
+        // if (n == 1) {
+        //     return f1;
+        // }
+        // if (n == 2) {
+        //     return f2;
+        // }
+        //
+        // for (int i = 3; i <= n; i++) {
+        //     fn = f1 + f2;
+        //     f1 = f2;
+        //     f2 = fn;
+        // }
+        // return fn;
 
-        if (n == 1) {
-            return f1;
-        }
-        if (n == 2) {
-            return f2;
-        }
-
-        for (int i = 3; i <= n; i++) {
-            fn = f1 + f2;
+        // 也可以Fibonacci数列的第一项也放上，i 从 1 直接开始循环。
+        int f1 = 1, f2 = 1, sum = 1;
+        for (int i = 1; i < n; i++) {
+            sum = f1 + f2;
             f1 = f2;
-            f2 = fn;
+            f2 = sum;
         }
-
-        return fn;
-
+        return sum;
     }
 
 
