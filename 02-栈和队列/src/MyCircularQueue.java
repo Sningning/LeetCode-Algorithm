@@ -26,7 +26,7 @@ public class MyCircularQueue {
     private int[] arr;
     private int size;
     private int front;
-    private int rear;
+    private int last;
 
     /** Initialize your data structure here. Set the size of the queue to be k. */
     public MyCircularQueue(int k) {
@@ -36,7 +36,7 @@ public class MyCircularQueue {
         this.arr = new int[k];
         this.size = 0;
         this.front = 0;
-        this.rear = 0;
+        this.last = 0;
     }
 
     /** Insert an element into the circular queue. Return true if the operation is successful. */
@@ -44,9 +44,9 @@ public class MyCircularQueue {
         if (size == arr.length) {
             return false;
         }
-        arr[rear] = value;
+        arr[last] = value;
         size ++;
-        rear = rear == arr.length - 1 ? 0 : rear + 1;
+        last = last == arr.length - 1 ? 0 : last + 1;
         return true;
     }
 
@@ -73,7 +73,7 @@ public class MyCircularQueue {
         if (size == 0) {
             return -1;
         }
-        return rear == 0 ? arr[arr.length - 1] : arr[rear - 1];
+        return last == 0 ? arr[arr.length - 1] : arr[last - 1];
     }
 
     /** Checks whether the circular queue is empty or not. */
