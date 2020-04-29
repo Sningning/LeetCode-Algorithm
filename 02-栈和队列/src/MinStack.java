@@ -27,14 +27,14 @@ public class MinStack {
     // top 操作：返回 data 栈栈顶元素
     // getMin 操作：返回 min 栈栈顶元素
 
-    // Stack<Integer> dataStack = new Stack<>();
-    // Stack<Integer> minStack = new Stack<>();
+    // Deque<Integer> dataStack = new ArrayDeque<>();
+    // Deque<Integer> minStack = new ArrayDeque<>();
     //
     // public MinStack() {}
     //
     // public void push(int x) {
     //     dataStack.push(x);
-    //     if (minStack.empty())
+    //     if (minStack.isEmpty())
     //         minStack.push(x);
     //     else
     //         minStack.push(x <= minStack.peek() ? x : minStack.peek());
@@ -58,17 +58,17 @@ public class MinStack {
     // 方法二：两个栈。(两个栈个数不一定要相同)
 
     // push 方法： 每当 push 新值进来时，如果 小于等于 min 栈顶值，则一起 push 到 min，即更新了栈顶最小值；
-    // pop 方法：从 data 栈pop，每次判断 pop 的元素是否等于 min 栈栈顶元素，如果相等，min 栈也一同pop
+    // pop 方法：从 data 栈 pop，每次判断 pop 的元素是否等于 min 栈栈顶元素，如果相等，min 栈也一同pop
     // getMin 方法：返回 min 栈栈顶元素
 
-    // Stack<Integer> dataStack = new Stack<>();
-    // Stack<Integer> minStack = new Stack<>();
+    // Deque<Integer> dataStack = new ArrayDeque<>();
+    // Deque<Integer> minStack = new ArrayDeque<>();
     //
     // public MinStack() {}
     //
     // public void push(int x) {
     //     dataStack.push(x);
-    //     if (minStack.empty() || x <= minStack.peek())
+    //     if (minStack.isEmpty() || x <= minStack.peek())
     //         minStack.push(x);
     // }
     //
@@ -97,7 +97,7 @@ public class MinStack {
     //              如果 不等于 min，直接 pop 即可
     //              如果 等于 min，先 pop，然后再 pop 一次，并且把第二次 pop 的元素赋值给 min
 
-    // Stack<Integer> stack = new Stack<>();
+    // Deque<Integer> stack = new ArrayDeque<>();
     // int min = Integer.MAX_VALUE;
     // public MinStack() {}
     //
@@ -165,6 +165,5 @@ public class MinStack {
     public int getMin() {
         return head.min;
     }
-
 
 }

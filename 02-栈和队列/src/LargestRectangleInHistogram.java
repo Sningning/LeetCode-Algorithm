@@ -27,9 +27,8 @@ public class LargestRectangleInHistogram {
         // int len = heights.length;
         // if (len == 0)  return 0;
         //
-        // int maxArea = 0;
+        // int res = 0;
         // for (int i = 0; i < len; i++) {
-        //
         //     // 找左边最后 1 个大于等于 heights[i] 的索引
         //     int l = i;
         //     while (l > 0 && heights[l - 1] >= heights[i])  l --;
@@ -39,13 +38,14 @@ public class LargestRectangleInHistogram {
         //     while (r < len - 1 && heights[r + 1] >= heights[i])  r ++;
         //
         //     // 计算面积
-        //     maxArea = Math.max(maxArea, heights[i] * (r - l + 1));
+        //     res = Math.max(res, heights[i] * (r - l + 1));
         // }
-        // return maxArea;
+        // return res;
 
 
 
-        // 方法二：栈 / 递增栈
+        // 方法二：栈 / 单调不减栈
+
         // 方法一中每次都要遍历左右两部分，寻找两侧的边界，这就产生了重复工作，因为很多元素其实之前已经遍历过了。
         // 维护一个单调递增的栈。为了获取宽度，栈中记录数组下标，因为高度可以很方便的从 heights[i] 获取。
         // 核心思想还是选取中心元素尽量向两侧延申。
@@ -81,7 +81,6 @@ public class LargestRectangleInHistogram {
             stack.push(i);
         }
         return res;
-
     }
 
 }
