@@ -1,7 +1,7 @@
 package array;
 
 /**
- * 283. 移动零
+ * 283. 移动零【简单】
  * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
  *
  * 示例:
@@ -41,15 +41,15 @@ public class MoveZeroes {
 
 
         // 方法2. 一层for循环，直接进行非零数值移动，后尾补零
-        int j = 0;  // 非零元素待插入的位置
+        int index = 0;  // 非零元素待插入的位置
         for (int i = 0; i < nums.length; i++) {
 
             if (nums[i] != 0) {
-                nums[j] = nums[i];
-                if (j != i) {
+                nums[index] = nums[i];
+                if (index != i) {
                     nums[i] = 0;
                 }
-                j++;
+                index++;
             }
         }
 

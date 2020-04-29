@@ -1,7 +1,7 @@
 package linkedlist;
 
 /**
- * 25. K 个一组翻转链表
+ * 25. K 个一组翻转链表【困难】
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
  *
  * k 是一个正整数，它的值小于或等于链表的长度。
@@ -37,34 +37,35 @@ public class ReverseKGroup {
         // 第一，剩下的链表个数不够 k 个不翻转；
         // 第二，已经翻转的部分要与剩下链表连接起来。
 
-        //     Stack<ListNode> stack = new Stack<>();
-        //     ListNode dummy = new ListNode(-1);
-        //     ListNode prev = dummy;
-        //     while (true) {
-        //         int count = 0;
-        //         ListNode cur = head;
-        //         while (cur != null && count < k) {
-        //             stack.push(cur);
-        //             count ++;
-        //             cur = cur.next;
-        //         }
-        //         // 执行完上面的 while 之后，temp 指向了下一个翻转小组的第一个结点
-        //         // 如果当前翻转小组中结点个数足够 k 个，那么此时 count == k，否则 count < k
-        //         if (count < k) {  // 个数不够 k 个不翻转
-        //             prev.next = head;
-        //             break;
-        //         }
-        //         // 出栈，连接结点
-        //         while (!stack.empty()) {
-        //             prev.next = stack.pop();
-        //             prev = prev.next;
-        //         }
-        //         // 重置结点
-        //         prev.next = cur;
-        //         head = cur;
+        // Stack<ListNode> stack = new Stack<>();
+        // ListNode dummy = new ListNode(-1);
+        // ListNode prev = dummy;
+        // while (true) {
+        //     int count = 0;
+        //     ListNode cur = head;
+        //     while (cur != null && count < k) {
+        //         stack.push(cur);
+        //         count ++;
+        //         cur = cur.next;
         //     }
-        //     return dummy.next;
+        //     // 执行完上面的 while 之后，temp 指向了下一个翻转小组的第一个结点
+        //     // 如果当前翻转小组中结点个数足够 k 个，那么此时 count == k，否则 count < k
+        //     if (count < k) {  // 个数不够 k 个不翻转
+        //         prev.next = head;
+        //         break;
+        //     }
+        //     // 出栈，连接结点
+        //     while (!stack.empty()) {
+        //         prev.next = stack.pop();
+        //         prev = prev.next;
+        //     }
+        //     // 重置结点
+        //     prev.next = cur;
+        //     head = cur;
         // }
+        // return dummy.next;
+
+
 
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
