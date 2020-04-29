@@ -38,11 +38,11 @@ public class SlidingWindowMaximum {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
 
-        // 方法一：暴力
-
-        // 遍历每个滑动窗口，找到每个窗口的最大值。一共有 N - k + 1 个滑动窗口，每个有 k 个元素
-        // 时间复杂度：O(Nk)；空间复杂度：O(N - k + 1)，输出数组的长度。
-
+        // // 方法一：暴力
+        //
+        // // 遍历每个滑动窗口，找到每个窗口的最大值。一共有 N - k + 1 个滑动窗口，每个有 k 个元素
+        // // 时间复杂度：O(Nk)；空间复杂度：O(N - k + 1)，输出数组的长度。
+        //
         // int len = nums.length;
         // if (len == 0 || k == 0)  return new int[0];
         // int[] res = new int[len - k + 1];
@@ -65,7 +65,6 @@ public class SlidingWindowMaximum {
         //      如果末尾比新数小，那么这个末尾肯定没有可能成为最大，把末尾扔掉，直到该队列的末尾比新数大或者队列为空的时候才停止，再把新数加到尾部
         //      如果末尾比新数大，新数直接加到队尾，虽然小，但是存起来的原因就是当窗口滑动到，前面几个都不在范围内了，这个数就有可能是最大的
         // ③ 双项队列中的所有值都要在窗口范围内
-
 
         if (nums == null || nums.length < 2)  return nums;
 
