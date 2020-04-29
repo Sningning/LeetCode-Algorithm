@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * 20. 有效的括号 【简单】
@@ -20,13 +21,13 @@ public class ValidParentheses {
     public boolean isValid(String s) {
 
 
-        // Stack<Character> stack = new Stack<>();
+        // Deque<Character> stack = new ArrayDeque<>();
         // for (int i = 0; i < s.length(); i++) {
         //     char c = s.charAt(i);
         //     if (c == '(' || c == '[' || c == '{')
         //         stack.push(c);
         //     else {
-        //         if (stack.empty())
+        //         if (stack.isEmpty())
         //             return false;
         //         else if (c == ')' && stack.pop() != '(')
         //             return false;
@@ -36,7 +37,7 @@ public class ValidParentheses {
         //             return false;
         //     }
         // }
-        // return stack.empty();
+        // return stack.isEmpty();
 
 
         // 同样是使用栈，但是每次如果遇到左括号，就压入其对应的右括号；同时开始的时候先判断下字符串长度是否为偶数
@@ -49,7 +50,7 @@ public class ValidParentheses {
 
         if (s.length() % 2 != 0)
             return false;
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
             if (c == '(')
                 stack.push(')');
@@ -57,10 +58,10 @@ public class ValidParentheses {
                 stack.push(']');
             else if (c == '{')
                 stack.push('}');
-            else if (stack.empty() || c != stack.pop())
+            else if (stack.isEmpty() || c != stack.pop())
                 return false;
         }
-        return stack.empty();
+        return stack.isEmpty();
 
 
     }
