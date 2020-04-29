@@ -20,12 +20,8 @@ public class MergeTwoLists {
 
         // // 1. 递归。
         // // 每次返回排序好的链表的头结点
-        // if (l1 == null) {
-        //     return l2;
-        // }
-        // if (l2 == null) {
-        //     return l1;
-        // }
+        // if (l1 == null)  return l2;
+        // if (l2 == null)  return l1;
         //
         // if (l1.val <= l2.val) {
         //     l1.next = mergeTwoLists(l1.next, l2);
@@ -38,7 +34,6 @@ public class MergeTwoLists {
 
 
         // 2. 迭代
-
         ListNode dummy = new ListNode(-1);
         ListNode prev = dummy;
         while (l1 != null && l2 != null) {
