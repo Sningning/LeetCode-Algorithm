@@ -1,7 +1,7 @@
 package test;
 
 /**
- * 66. 加一
+ * 66. 加一【简单】
  * 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
  *
  * 最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
@@ -42,7 +42,7 @@ public class PlusOne {
                 return digits;
             }
         }
-
+        // 如果能执行到这里，说明数组第一个数是 9，而且还需要 +1 进位，直接开新数组
         digits = new int[len + 1];
         digits[0] = 1;
         return digits;
