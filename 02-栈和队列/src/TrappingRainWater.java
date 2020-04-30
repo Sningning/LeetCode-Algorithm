@@ -100,7 +100,8 @@ public class TrappingRainWater {
 
 
 
-        // 方法三：双指针。
+        // 方法三：双指针。时间复杂度：O(N)；空间复杂度：O(1)
+
         // 使用 leftIdx 和 r 两个指针，leftMax 和 rightMax 两个记录当前遍历到柱子的左右可能的最大值，为什么说可能呢？
         // leftMax 是随着 l 向右遍历而更新的；rightMax 是随着 r 向左遍历而更新的
         //
