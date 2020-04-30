@@ -25,7 +25,7 @@ public class TrappingRainWater {
         // ② 如果 严格大于 当前考虑的柱子的高度，可以盛水，而且这一列能盛水的高度就是两者差值。
 
         // int res = 0;
-        // if (height.length < 2)  return res;
+        // if (height.length < 3)  return res;
         // //最两端的列不用考虑，因为一定不会有水。所以下标从 1 到 length - 2
         // for (int i = 1; i < height.length - 1; i++) {
         //     // 找出左边高度大于当前列高度的位置
