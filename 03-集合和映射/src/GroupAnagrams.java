@@ -28,21 +28,42 @@ public class GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
 
         // 1. 排序数组分类
+
         // 维护一个 map，key：排序好的字符串，value：初始输入的字符串列表
         // res = {"aet" : ["ate", "eat", "tea"],
         //        "ant" : ["nat", "tan].
         //        "abt" : ["bat"] }
 
-        if (strs.length == 0)  return new ArrayList<>();
-        Map<String, List<String>> res = new HashMap<>();
+        if (strs == null || strs.length == 0)  return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
             char[] c = s.toCharArray();
             Arrays.sort(c);
             String key = String.valueOf(c);
-            if (!res.containsKey(key))
-                res.put(key, new ArrayList<>());
-            res.get(key).add(s);
+            if (!map.containsKey(key))
+                map.put(key, new ArrayList<>());
+            map.get(key).add(s);
         }
-        return new ArrayList<>(res.values());
+        return new ArrayList<>(map.values());
+
+
+        // 2. 无需排序。
+        // 只有小写字母，先新建 26 长度的字符数组，将
+
+        // if (strs == null || strs.length == 0)  return new ArrayList<>();
+        // Map<String, List<String>> map = new HashMap<>();
+        // for (String s : strs) {
+        //     char[] alpha = new char[26];
+        //     for (char c : s.toCharArray()) alpha[c - 'a'] ++;
+        //     String key = String.valueOf(alpha);
+        //     if (!map.containsKey(key)) map.put(key, new ArrayList<>());
+        //     map.get(key).add(s);
+        // }
+        // return new ArrayList<>(map.values());
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println('c' - 'a');
     }
 }
