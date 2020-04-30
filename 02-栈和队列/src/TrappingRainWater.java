@@ -50,6 +50,24 @@ public class TrappingRainWater {
         // return res;
 
 
+        // int res = 0;
+        // // 特判
+        // if (height.length < 3)  return res;
+        //
+        // for (int i = 1; i < height.length - 1; i ++) {
+        //     int leftMax = 0;
+        //     for (int l = i - 1; l >= 0; l--)
+        //         leftMax = Math.max(leftMax, height[l]);
+        //     int rightMax = 0;
+        //     for (int r = i + 1; r <= height.length - 1; r ++)
+        //         rightMax = Math.max(rightMax, height[r]);
+        //     int minH = Math.min(leftMax, rightMax);
+        //     if (minH <= height[i]) continue;
+        //     res += minH - height[i];
+        // }
+        // return res;
+
+
 
         // 方法二：栈 / 单调不增栈。时间复杂度：O(N)；空间复杂度：O(N)
 
