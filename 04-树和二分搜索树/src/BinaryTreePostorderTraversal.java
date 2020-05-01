@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 145. 二叉树的后序遍历
@@ -16,12 +15,36 @@ public class BinaryTreePostorderTraversal {
 
         // 1.递归
 
-        List<Integer> res = new ArrayList<>();
-        postOrder(root, res);
-        return res;
+        // List<Integer> res = new ArrayList<>();
+        // postOrder(root, res);
+        // return res;
 
 
         // 2. 迭代
+
+        // 前序遍历顺序为：根 -> 左 -> 右
+        // 后序遍历顺序为：左 -> 右 -> 根
+        // 如果1： 我们将前序遍历中结点插入结果链表尾部的逻辑，修改为将结点插入结果链表的头部
+        //         那么结果链表就变为了：右 -> 左 -> 根
+        // 如果2： 我们将遍历的顺序由从左到右修改为从右到左，配合如果1
+        //         那么结果链表就变为了：左 -> 右 -> 根
+        // 这刚好是后序遍历的顺序
+        // 如何处理：
+        // 修改前序遍历代码中，结点写入结果链表的代码，将插入队尾修改为插入队首
+        // 修改前序遍历代码中，每次先查看左结点再查看右结点的逻辑，变为先查看右结点再查看左结点
+
+        LinkedList<Integer> res = new LinkedList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                res.addFirst(node.val);
+                stack.push(node);
+                node = node.right;
+            }
+            node = stack.pop().left;
+        }
+        return res;
 
 
 
@@ -57,12 +80,12 @@ public class BinaryTreePostorderTraversal {
 
     }
 
-    private void postOrder(TreeNode node, List<Integer> list) {
-        if (node == null) return;
-        postOrder(node.left, list);
-        postOrder(node.right, list);
-        list.add(node.val);
-    }
+    // private void postOrder(TreeNode node, List<Integer> list) {
+    //     if (node == null) return;
+    //     postOrder(node.left, list);
+    //     postOrder(node.right, list);
+    //     list.add(node.val);
+    // }
 
 
 }
