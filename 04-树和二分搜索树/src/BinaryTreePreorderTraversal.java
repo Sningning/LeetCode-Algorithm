@@ -1,6 +1,4 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 /**
@@ -18,9 +16,9 @@ public class BinaryTreePreorderTraversal {
 
         // 1. 递归
 
-        // List<Integer> res = new ArrayList<>();
-        // preOrder(root, res);
-        // return res;
+        List<Integer> res = new ArrayList<>();
+        preOrder(root, res);
+        return res;
 
 
         // 2. 迭代。时间复杂度：O(N)；空间复杂度:O(N)
@@ -42,40 +40,40 @@ public class BinaryTreePreorderTraversal {
 
         // 3. 另一种迭代
 
-        class ColorNode {
-            TreeNode node;
-            int color;
-
-            public ColorNode(TreeNode node, int color) {
-                this.node = node;
-                this.color = color;
-            }
-        }
-        List<Integer> res = new ArrayList<>();
-        if (root == null) return res;
-        Deque<ColorNode> stack = new ArrayDeque<>();
-        stack.push(new ColorNode(root, 0));
-        while (!stack.isEmpty()) {
-            ColorNode cn = stack.pop();
-            if (cn.color == 0) {
-                if (cn.node.right != null)
-                    stack.push(new ColorNode(cn.node.right, 0));
-                if (cn.node.left != null)
-                    stack.push(new ColorNode(cn.node.left, 0));
-                stack.push(new ColorNode(cn.node, 1));
-            } else {
-                res.add(cn.node.val);
-            }
-        }
-        return res;
+        // class ColorNode {
+        //     TreeNode node;
+        //     int color;
+        //
+        //     public ColorNode(TreeNode node, int color) {
+        //         this.node = node;
+        //         this.color = color;  // 0 为白色，代表新结点；1 为灰色，代表已访问
+        //     }
+        // }
+        // List<Integer> res = new ArrayList<>();
+        // if (root == null) return res;
+        // Deque<ColorNode> stack = new ArrayDeque<>();
+        // stack.push(new ColorNode(root, 0));
+        // while (!stack.isEmpty()) {
+        //     ColorNode cn = stack.pop();
+        //     if (cn.color == 0) {
+        //         if (cn.node.right != null)
+        //             stack.push(new ColorNode(cn.node.right, 0));
+        //         if (cn.node.left != null)
+        //             stack.push(new ColorNode(cn.node.left, 0));
+        //         stack.push(new ColorNode(cn.node, 1));
+        //     } else {
+        //         res.add(cn.node.val);
+        //     }
+        // }
+        // return res;
 
     }
 
-    // private void preOrder(TreeNode node, List<Integer> list) {
-    //     if (node == null) return;
-    //     list.add(node.val);
-    //     preOrder(node.left, list);
-    //     preOrder(node.right, list);
-    // }
+    private void preOrder(TreeNode node, List<Integer> list) {
+        if (node == null) return;
+        list.add(node.val);
+        preOrder(node.left, list);
+        preOrder(node.right, list);
+    }
 
 }
