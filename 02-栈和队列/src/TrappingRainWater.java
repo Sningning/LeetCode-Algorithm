@@ -9,6 +9,8 @@
  * 输入: [0,1,0,2,1,0,1,3,2,1,2,1]
  * 输出: 6
  *
+ * https://leetcode-cn.com/problems/trapping-rain-water/
+ *
  * @Author: Song Ningning
  * @Date: 2020-04-29 9:02
  */
@@ -55,13 +57,17 @@ public class TrappingRainWater {
         // if (height == null || height.length < 3)  return res;
         //
         // for (int i = 1; i < height.length - 1; i ++) {
-        //     int leftMax = 0;
+        //     // 找出左边高度大于当前列高度的位置
+        //     int leftMax = height[i];
         //     for (int l = i - 1; l >= 0; l--)
         //         leftMax = Math.max(leftMax, height[l]);
-        //     int rightMax = 0;
+        //     // 找出右边高度大于当前列高度的位置
+        //     int rightMax = height[i];
         //     for (int r = i + 1; r <= height.length - 1; r ++)
         //         rightMax = Math.max(rightMax, height[r]);
+        //     // 计算两边柱子中较短的
         //     int minH = Math.min(leftMax, rightMax);
+        //     // 如果两边柱子中最短的 小于等于 当前柱子，不能盛水，直接结束当前轮
         //     if (minH <= height[i]) continue;
         //     res += minH - height[i];
         // }
@@ -142,6 +148,7 @@ public class TrappingRainWater {
         //     }
         // }
         // return res;
+
 
         int res = 0;
         // 特判

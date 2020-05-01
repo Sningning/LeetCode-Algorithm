@@ -81,9 +81,11 @@ public class SlidingWindowMaximum {
             // 添加当前值对应的数组下标
             queue.addLast(i);
             // 判断当前队列中队首的值是否有效
+            // 如果队首元素不在范围内了，出队
             if (queue.peekFirst() <= i - k) {
                 queue.pollFirst();
             }
+            // 开始 [0, k - 2]范围还没有达到 k，所以不记录，当 i == k - 1 时开始记录
             // 当窗口长度为k时 保存当前窗口中最大值
             if (i + 1 >= k) {
                 res[i - k + 1] = nums[queue.peekFirst()];
