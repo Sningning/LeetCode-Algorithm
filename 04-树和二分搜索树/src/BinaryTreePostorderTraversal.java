@@ -1,6 +1,4 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 /**
@@ -18,9 +16,13 @@ public class BinaryTreePostorderTraversal {
 
         // 1.递归
 
-        // List<Integer> res = new ArrayList<>();
-        // postOrder(root, res);
-        // return res;
+        List<Integer> res = new ArrayList<>();
+        postOrder(root, res);
+        return res;
+
+
+        // 2. 迭代
+
 
 
         // 3. 另一种迭代
@@ -55,12 +57,12 @@ public class BinaryTreePostorderTraversal {
 
     }
 
-    // private void postOrder(TreeNode node, List<Integer> list) {
-    //     if (node == null) return;
-    //     postOrder(node.left, list);
-    //     postOrder(node.right, list);
-    //     list.add(node.val);
-    // }
+    private void postOrder(TreeNode node, List<Integer> list) {
+        if (node == null) return;
+        postOrder(node.left, list);
+        postOrder(node.right, list);
+        list.add(node.val);
+    }
 
 
 }
