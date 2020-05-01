@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 144. 二叉树的前序遍历
@@ -23,17 +22,30 @@ public class BinaryTreePreorderTraversal {
 
         // 2. 迭代。时间复杂度：O(N)；空间复杂度:O(N)
 
-        // List<Integer> res = new ArrayList<>();
+        // LinkedList<Integer> res = new LinkedList<>();
         // if (root == null) return res;
         // Deque<TreeNode> stack = new ArrayDeque<>();
         // stack.push(root);
         // while (!stack.isEmpty()) {
         //     TreeNode node = stack.pop();
-        //     res.add(node.val);
+        //     res.addLast(node.val);
         //     if (node.right != null)
         //         stack.push(node.right);
         //     if (node.left != null)
         //         stack.push(node.left);
+        // }
+        // return res;
+
+        // LinkedList<Integer> res = new LinkedList<>();
+        // Deque<TreeNode> stack = new ArrayDeque<>();
+        // TreeNode node = root;
+        // while (node != null || !stack.isEmpty()) {
+        //     while (node != null) {
+        //         res.addLast(node.val);
+        //         stack.push(node);
+        //         node = node.left;
+        //     }
+        //     node = stack.pop().right;
         // }
         // return res;
 

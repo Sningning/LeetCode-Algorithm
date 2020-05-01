@@ -15,9 +15,9 @@ public class BinaryTreePostorderTraversal {
 
         // 1.递归
 
-        // List<Integer> res = new ArrayList<>();
-        // postOrder(root, res);
-        // return res;
+        List<Integer> res = new ArrayList<>();
+        postOrder(root, res);
+        return res;
 
 
         // 2. 迭代
@@ -28,23 +28,39 @@ public class BinaryTreePostorderTraversal {
         //         那么结果链表就变为了：右 -> 左 -> 根
         // 如果2： 我们将遍历的顺序由从左到右修改为从右到左，配合如果1
         //         那么结果链表就变为了：左 -> 右 -> 根
-        // 这刚好是后序遍历的顺序
+        // 这刚好是后序遍历的顺序，即，把前序遍历改成“根->右->左”，再逆序一下就是后序遍历。
         // 如何处理：
-        // 修改前序遍历代码中，结点写入结果链表的代码，将插入队尾修改为插入队首
         // 修改前序遍历代码中，每次先查看左结点再查看右结点的逻辑，变为先查看右结点再查看左结点
+        // 修改前序遍历代码中，结点写入结果链表的代码，将插入队尾修改为插入队首
 
-        LinkedList<Integer> res = new LinkedList<>();
-        Deque<TreeNode> stack = new ArrayDeque<>();
-        TreeNode node = root;
-        while (node != null || !stack.isEmpty()) {
-            while (node != null) {
-                res.addFirst(node.val);
-                stack.push(node);
-                node = node.right;
-            }
-            node = stack.pop().left;
-        }
-        return res;
+        // LinkedList<Integer> res = new LinkedList<>();
+        // if (root == null) return res;
+        // Deque<TreeNode> stack = new ArrayDeque<>();
+        // stack.push(root);
+        // while (!stack.isEmpty()) {
+        //     TreeNode node = stack.pop();
+        //     // 头插
+        //     res.addFirst(node.val);
+        //     if (node.left != null)
+        //         stack.push(node.left);
+        //     if (node.right != null)
+        //         stack.push(node.right);
+        // }
+        // return res;
+
+
+        // LinkedList<Integer> res = new LinkedList<>();
+        // Deque<TreeNode> stack = new ArrayDeque<>();
+        // TreeNode node = root;
+        // while (node != null || !stack.isEmpty()) {
+        //     while (node != null) {
+        //         res.addFirst(node.val);
+        //         stack.push(node);
+        //         node = node.right;
+        //     }
+        //     node = stack.pop().left;
+        // }
+        // return res;
 
 
 
@@ -80,12 +96,12 @@ public class BinaryTreePostorderTraversal {
 
     }
 
-    // private void postOrder(TreeNode node, List<Integer> list) {
-    //     if (node == null) return;
-    //     postOrder(node.left, list);
-    //     postOrder(node.right, list);
-    //     list.add(node.val);
-    // }
+    private void postOrder(TreeNode node, List<Integer> list) {
+        if (node == null) return;
+        postOrder(node.left, list);
+        postOrder(node.right, list);
+        list.add(node.val);
+    }
 
 
 }
