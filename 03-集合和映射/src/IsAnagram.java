@@ -32,11 +32,10 @@ public class IsAnagram {
         //     alpha[s.charAt(i) - 'a'] ++;
         //     alpha[t.charAt(i) - 'a'] --;
         // }
-        // for (int i = 0; i < alpha.length; i++) {
-        //     if (alpha[i] != 0)
-        //         return false;
-        // }
+        // for (int nums : alpha)
+        //     if (nums != 0) return false;
         // return true;
+
 
         if (s.length() != t.length())
             return false;
