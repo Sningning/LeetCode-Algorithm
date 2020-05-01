@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 590. N叉树的后序遍历
@@ -22,7 +21,22 @@ public class NAryTreePostorderTraversal {
 
 
         // 2. 迭代
+        // 先序遍历的变形，先序遍历是“根->左->右”，后序遍历是“左->右->根”，
+        // 那么把先序遍历改成“根->右->左”，再逆序一下就是后序遍历。
 
+        // LinkedList<Integer> res = new LinkedList<>();
+        // if (root == null) return res;
+        // Deque<Node> stack = new ArrayDeque<>();
+        // stack.push(root);
+        // while (!stack.isEmpty()) {
+        //     Node node = stack.pop();
+        //     res.addFirst(node.val);
+        //     for (int i = 0; i < node.children.size(); i++) {
+        //         if (node.children.get(i) != null)
+        //             stack.push(node.children.get(i));
+        //     }
+        // }
+        // return res;
 
     }
 
