@@ -31,6 +31,9 @@ public class ReverseKGroup {
 
     public ListNode reverseKGroup(ListNode head, int k) {
 
+
+        // https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/di-gui-si-wei-ru-he-tiao-chu-xi-jie-by-labuladong/
+
         // 思路一：
         // 用栈，把 k 个数压入栈中，然后弹出来的顺序就是翻转的！
         // 这里要注意几个问题：
@@ -48,7 +51,7 @@ public class ReverseKGroup {
         //         count ++;
         //         cur = cur.next;
         //     }
-        //     // 执行完上面的 while 之后，temp 指向了下一个翻转小组的第一个结点
+        //     // 执行完上面的 while 之后，cur 指向了下一个翻转小组的第一个结点
         //     // 如果当前翻转小组中结点个数足够 k 个，那么此时 count == k，否则 count < k
         //     if (count < k) {  // 个数不够 k 个不翻转
         //         prev.next = head;
