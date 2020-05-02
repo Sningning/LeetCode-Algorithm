@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 94. 二叉树的中序遍历
+ * 94. 二叉树的中序遍历【中等】
  * 给定一个二叉树，返回它的中序 遍历
  *
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/

@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * 589. N叉树的前序遍历
+ * 589. N 叉树的前序遍历【简单】
  * 给定一个 N 叉树，返回其节点值的前序遍历。
  *
  * https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/description/
@@ -29,10 +29,8 @@ public class NAryTreePreorderTraversal {
         // while (!stack.isEmpty()) {
         //     Node node = stack.pop();
         //     res.addLast(node.val);
-        //     for (int i = node.children.size() - 1; i >= 0; i--) {
-        //         if (node.children.get(i) != null)
-        //             stack.push(node.children.get(i));
-        //     }
+        //     for (int i = node.children.size() - 1; i >= 0; i--)
+        //         stack.push(node.children.get(i));
         // }
         // return res;
 
@@ -41,7 +39,7 @@ public class NAryTreePreorderTraversal {
     private void preOrder(Node node, List<Integer> list) {
         if (node == null) return;
         list.add(node.val);
-        for(Node child : node.children)
+        for (Node child : node.children)
             preOrder(child, list);
     }
 

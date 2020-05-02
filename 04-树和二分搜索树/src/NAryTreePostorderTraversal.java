@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * 590. N叉树的后序遍历
+ * 590. N 叉树的后序遍历【简单】
  * 给定一个 N 叉树，返回其节点值的后序遍历。
  *
  * https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/
