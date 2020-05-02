@@ -32,7 +32,7 @@ public class ReverseKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
 
 
-        // https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/di-gui-si-wei-ru-he-tiao-chu-xi-jie-by-labuladong/
+
 
         // 思路一：
         // 用栈，把 k 个数压入栈中，然后弹出来的顺序就是翻转的！
