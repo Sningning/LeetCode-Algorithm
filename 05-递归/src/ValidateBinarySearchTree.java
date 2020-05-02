@@ -15,6 +15,8 @@ public class ValidateBinarySearchTree {
     ArrayList<Integer> list = new ArrayList<>();
     boolean result = true;
 
+    // 配合 3. 递归
+    // long last = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
 
 
@@ -48,6 +50,18 @@ public class ValidateBinarySearchTree {
         // 3. 递归
         // 注意：仅检查 node.right.val > node.val 和 node.left.val < node.val 是不够的
         // 应该保证 node.right.val > node.val 且 node 的所有右孩子都应该 大于 node.val
+
+        // if (root == null) {
+        //     return true;
+        // }
+        // if (isValidBST(root.left)) {
+        //     if (last < root.val) {
+        //         last = root.val;
+        //         return isValidBST(root.right);
+        //     }
+        // }
+        // return false;
+
 
 
     }
