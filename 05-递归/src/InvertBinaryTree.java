@@ -1,5 +1,5 @@
 /**
- * 226. 翻转二叉树
+ * 226. 翻转二叉树【简单】
  * 翻转一棵二叉树。
  *
  * https://leetcode-cn.com/problems/invert-binary-tree/description/
@@ -16,7 +16,7 @@ public class InvertBinaryTree {
 
 
         // 2. 迭代
-        // 采用层序遍历的方法，然后调换当前结点的左右孩子
+        // 采用层序遍历的方法，每次调换当前结点的左右孩子
 
         // if (root == null) return null;
         // Queue<TreeNode> queue = new LinkedList<>();
