@@ -71,9 +71,9 @@ public class ValidateBinarySearchTree {
         if (node == null) return;
         if (node.left != null)
             inOrder(node.left);
-        if (list.size() > 0) {
-            if (list.get(list.size() - 1) >= node.val)
-                result = false;
+        if (list.size() > 0 && list.get(list.size() - 1) >= node.val) {
+            result = false;
+            return;
         }
         list.add(node.val);
         if (node.right != null)
