@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * 98. 验证二叉搜索树
+ * 98. 验证二叉搜索树【中等】
  * 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
  *
  * https://leetcode-cn.com/problems/validate-binary-search-tree/
