@@ -17,7 +17,6 @@ public class GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
 
-        // 特判
         generate(0, 0, n, "");
         return res;
     }
