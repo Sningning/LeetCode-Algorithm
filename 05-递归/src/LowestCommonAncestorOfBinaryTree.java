@@ -14,7 +14,7 @@
  * @Author: Song Ningning
  * @Date: 2020-05-04 9:12
  */
-public class LowestCommonAncestor {
+public class LowestCommonAncestorOfBinaryTree {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
