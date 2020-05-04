@@ -52,9 +52,9 @@ public class Permutations {
 
         for (int i = 0; i < nums.length; i ++) {
             // 排除不合法的选择
-            if (used[i]) {
+            if (used[i])
                 continue;
-            }
+
             // 做选择
             path.add(nums[i]);
             used[i] = true;
