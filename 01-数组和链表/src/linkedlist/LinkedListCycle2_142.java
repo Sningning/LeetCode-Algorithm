@@ -22,7 +22,7 @@ public class LinkedListCycle2_142 {
         ListNode slow = head;
         ListNode fast = head;
         while (true) {
-            if (fast == null && fast.next == null) {
+            if (fast == null || fast.next == null) {
                 return null;
             }
             slow = slow.next;
