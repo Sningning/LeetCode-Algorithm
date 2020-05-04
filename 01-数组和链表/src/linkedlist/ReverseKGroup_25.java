@@ -32,15 +32,13 @@ public class ReverseKGroup_25 {
     public ListNode reverseKGroup(ListNode head, int k) {
 
 
-
-
         // 思路一：
         // 用栈，把 k 个数压入栈中，然后弹出来的顺序就是翻转的！
         // 这里要注意几个问题：
         // 第一，剩下的链表个数不够 k 个不翻转；
         // 第二，已经翻转的部分要与剩下链表连接起来。
 
-        // Stack<ListNode> stack = new Stack<>();
+        // Deque<ListNode> stack = new ArrayDeque<>();
         // ListNode dummy = new ListNode(-1);
         // ListNode prev = dummy;
         // while (true) {
@@ -58,7 +56,7 @@ public class ReverseKGroup_25 {
         //         break;
         //     }
         //     // 出栈，连接结点
-        //     while (!stack.empty()) {
+        //     while (!stack.isEmpty()) {
         //         prev.next = stack.pop();
         //         prev = prev.next;
         //     }
