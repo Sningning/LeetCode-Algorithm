@@ -22,7 +22,7 @@ import java.util.*;
  * @Author: Song Ningning
  * @Date: 2020-05-04 15:32
  */
-public class Permutations {
+public class Permutations_46 {
 
     List<List<Integer>> res = new LinkedList<>();
 
