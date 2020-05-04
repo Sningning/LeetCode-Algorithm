@@ -31,6 +31,9 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
         // 由于节点个数是一样的，因此只需要在 preL 基础上加上左子树长度即可确定 preR
         // 右子树在 前序遍历数组 中的左边界就是 preR + 1
 
+        // 为了方便查找当前根节点在 中序遍历数组 中的位置，首先将中序遍历数组元素存到一个 map 中，
+        // 便可以以 O(1) 的时间检索到响应位置
+
 
         int preLen = preorder.length;
         int inLen = inorder.length;
