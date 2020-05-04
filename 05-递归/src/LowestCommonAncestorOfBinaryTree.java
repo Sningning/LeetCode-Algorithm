@@ -27,7 +27,10 @@ public class LowestCommonAncestorOfBinaryTree {
         // 如果左右子树查到节点都不为空，则表明 p 和 q 分别在左右子树中，此时，当前节点即为最近公共祖先
         if (left != null && right != null) return root;
 
-        // 如果左右子树其中一个不为空，则返回非空节点
+        // 题干表明：p、q 为不同节点且均存在于给定的二叉树中。
+        // 如果左子树为空，右子树不为空，说明 p 和 q 都在右子树，返回右子树结果
+        // 如果右子树为空，左子树不为空，说明 p 和 q 都在右子树，返回左子树结果
+        // 如果左右都为空，返回 null（根据题目要求，这种情况不存在，不过即使存在也是可以处理）
         return left == null ? right : left;
     }
 }
