@@ -21,7 +21,7 @@ public class LowestCommonAncestorOfBinaryTree {
         // 递归终止条件：如果当前节点为空，返回 null；如果当前节点等于 p 或 q，则返回当前节点
         if (root == null || root == p || root == q) return root;
 
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode left  = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
         // 如果左右子树查到节点都不为空，则表明 p 和 q 分别在左右子树中，此时，当前节点即为最近公共祖先
