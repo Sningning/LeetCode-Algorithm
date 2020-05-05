@@ -44,10 +44,10 @@ public class LetterCombinationsOfAPhoneNumber_17 {
             return;
         }
 
-        String subStr = map.get(digits.charAt(start));
+        String str = map.get(digits.charAt(start));
 
-        for (int i = 0; i < subStr.length(); i++) {
-            path.append(subStr.charAt(i));
+        for (int i = 0; i < str.length(); i++) {
+            path.append(str.charAt(i));
             dfs(digits, path, start + 1, map);
             path.deleteCharAt(path.length() - 1);
         }
