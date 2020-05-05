@@ -45,20 +45,30 @@ public class ValidateBinarySearchTree_98 {
         // return true;
 
 
-        // 3. 递归
+        // 3. 递归 / 中序遍历
         // 注意：仅检查 node.right.val > node.val 和 node.left.val < node.val 是不够的
         // 应该保证 node.right.val > node.val 且 node 的所有右孩子都应该 大于 node.val
 
-        if (root == null) {
+        // if (root == null) {
+        //     return true;
+        // }
+        // if (isValidBST(root.left)) {
+        //     if (pre < root.val) {
+        //         pre = root.val;
+        //         return isValidBST(root.right);
+        //     }
+        // }
+        // return false;
+
+        if (root == null)
             return true;
-        }
-        if (isValidBST(root.left)) {
-            if (pre < root.val) {
-                pre = root.val;
-                return isValidBST(root.right);
-            }
-        }
-        return false;
+        if (!isValidBST(root.left))
+            return false;
+        if (root.val <= pre)
+            return false;
+        pre = root.val;
+        return isValidBST(root.right);
+
 
     }
 
