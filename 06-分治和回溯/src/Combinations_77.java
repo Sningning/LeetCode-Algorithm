@@ -49,7 +49,7 @@ public class Combinations_77 {
         // 比如，n = 5，k = 4，pre.size( ) == 1，此时代表我们还需要（4 - 1 = 3）个数字，
         // 如果 i = 4 的话，以后最多把 4 和 5 加入到 pre 中，而此时 pre.size() 才等于 1 + 2 = 3，
         // 不够 4 个，所以 i 没必要等于 4，i 循环到 3 就足够了。
-        for (int i = start; i <= n; i++) {
+        for (int i = start; i <= n - (k - pre.size()) + 1; i++) {
             pre.add(i);
             findCombinations(n, k, i + 1, pre);
             pre.remove(pre.size() - 1);
