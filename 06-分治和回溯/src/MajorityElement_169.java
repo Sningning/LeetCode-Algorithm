@@ -11,7 +11,7 @@
  * @Author: Song Ningning
  * @Date: 2020-05-05 15:55
  */
-public class MajorityElement {
+public class MajorityElement_169 {
 
     public int majorityElement(int[] nums) {
 
