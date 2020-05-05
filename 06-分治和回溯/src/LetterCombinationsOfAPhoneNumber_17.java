@@ -33,11 +33,11 @@ public class LetterCombinationsOfAPhoneNumber_17 {
         map.put('8', "tuv");
         map.put('9', "wxyz");
         StringBuilder path = new StringBuilder();
-        dfs(digits, path, 0, map);
+        backtrack(digits, path, 0, map);
         return res;
     }
 
-    private void dfs(String digits, StringBuilder path, int start, Map<Character, String> map) {
+    private void backtrack(String digits, StringBuilder path, int start, Map<Character, String> map) {
 
         if (start == digits.length()) {
             res.add(new String(path));
@@ -48,7 +48,7 @@ public class LetterCombinationsOfAPhoneNumber_17 {
 
         for (int i = 0; i < str.length(); i++) {
             path.append(str.charAt(i));
-            dfs(digits, path, start + 1, map);
+            backtrack(digits, path, start + 1, map);
             path.deleteCharAt(path.length() - 1);
         }
 
