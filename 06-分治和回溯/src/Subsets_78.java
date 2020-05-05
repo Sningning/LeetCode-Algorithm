@@ -21,11 +21,11 @@ public class Subsets_78 {
         if (nums.length == 0)
             return res;
         List<Integer> path = new LinkedList<>();
-        dfs(nums, path, 0);
+        backtrack(nums, path, 0);
         return res;
     }
 
-    private void dfs(int[] nums, List<Integer> path, int start) {
+    private void backtrack(int[] nums, List<Integer> path, int start) {
 
         res.add(new LinkedList<>(path));
 
@@ -35,7 +35,7 @@ public class Subsets_78 {
             // 做选择
             path.add(nums[i]);
             // 回溯
-            dfs(nums, path, i + 1);
+            backtrack(nums, path, i + 1);
             // 撤销选择
             path.remove(path.size() - 1);
         }
