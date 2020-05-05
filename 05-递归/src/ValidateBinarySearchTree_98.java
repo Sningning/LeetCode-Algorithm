@@ -62,8 +62,6 @@ public class ValidateBinarySearchTree_98 {
         // }
         // return false;
 
-
-
     }
 
     private void inOrder(TreeNode node) {
