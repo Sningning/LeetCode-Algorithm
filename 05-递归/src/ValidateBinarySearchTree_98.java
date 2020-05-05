@@ -14,7 +14,7 @@ public class ValidateBinarySearchTree_98 {
     // boolean result = true;
 
     // 配合 3. 递归
-    long last = Long.MIN_VALUE;
+    long pre = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
 
 
@@ -53,8 +53,8 @@ public class ValidateBinarySearchTree_98 {
             return true;
         }
         if (isValidBST(root.left)) {
-            if (last < root.val) {
-                last = root.val;
+            if (pre < root.val) {
+                pre = root.val;
                 return isValidBST(root.right);
             }
         }
