@@ -58,7 +58,7 @@ public class MajorityElement_169 {
             }
         }
         // 这里能直接返回 candidate 的原因是题干说明了一定存在众数，
-        // 否则摩尔投票法除了 投票阶段 外，还需要 计数阶段。
+        // 否则摩尔投票法除了 投票阶段，还需要 计数阶段。
         // 比如对于数组 [1, 2, 3]，最后的 candidate == 3，明显不是众数。
         return candidate;
 
