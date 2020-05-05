@@ -23,7 +23,7 @@ import java.util.List;
  * @Author: Song Ningning
  * @Date: 2020-05-04 21:43
  */
-public class Combinations {
+public class Combinations_77 {
 
     List<List<Integer>> res = new LinkedList<>();
 
