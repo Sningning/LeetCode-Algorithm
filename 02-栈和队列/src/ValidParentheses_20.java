@@ -22,8 +22,7 @@ public class ValidParentheses_20 {
 
 
         // Deque<Character> stack = new ArrayDeque<>();
-        // for (int i = 0; i < s.length(); i++) {
-        //     char c = s.charAt(i);
+        // for (char c : s.toCharArray()) {
         //     if (c == '(' || c == '[' || c == '{')
         //         stack.push(c);
         //     else {
@@ -62,8 +61,12 @@ public class ValidParentheses_20 {
                 return false;
         }
         return stack.isEmpty();
+    }
 
-
+    public static void main(String[] args) {
+        String str = "((";
+        ValidParentheses_20 instance = new ValidParentheses_20();
+        System.out.println(instance.isValid(str));
     }
 
 }
