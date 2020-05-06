@@ -1,3 +1,6 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * 155. 最小栈 【简单】
  * 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
@@ -30,7 +33,7 @@ public class MinStack_155 {
     // Deque<Integer> dataStack = new ArrayDeque<>();
     // Deque<Integer> minStack = new ArrayDeque<>();
     //
-    // public MinStack() {}
+    // public MinStack_155() {}
     //
     // public void push(int x) {
     //     dataStack.push(x);
@@ -64,7 +67,7 @@ public class MinStack_155 {
     // Deque<Integer> dataStack = new ArrayDeque<>();
     // Deque<Integer> minStack = new ArrayDeque<>();
     //
-    // public MinStack() {}
+    // public MinStack_155() {}
     //
     // public void push(int x) {
     //     dataStack.push(x);
@@ -97,30 +100,30 @@ public class MinStack_155 {
     //              如果 不等于 min，直接 pop 即可
     //              如果 等于 min，先 pop，然后再 pop 一次，并且把第二次 pop 的元素赋值给 min
 
-    // Deque<Integer> stack = new ArrayDeque<>();
-    // int min = Integer.MAX_VALUE;
-    // public MinStack() {}
-    //
-    // public void push(int x) {
-    //     if (x <= min) {
-    //         stack.push(min);
-    //         min = x;
-    //     }
-    //     stack.push(x);
-    // }
-    //
-    // public void pop() {
-    //     if (stack.pop() == min)
-    //         min = stack.pop();
-    // }
-    //
-    // public int top() {
-    //     return stack.peek();
-    // }
-    //
-    // public int getMin() {
-    //     return min;
-    // }
+    Deque<Integer> stack = new ArrayDeque<>();
+    int min = Integer.MAX_VALUE;
+    public MinStack_155() {}
+
+    public void push(int x) {
+        if (x <= min) {
+            stack.push(min);
+            min = x;
+        }
+        stack.push(x);
+    }
+
+    public void pop() {
+        if (stack.pop() == min)
+            min = stack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return min;
+    }
 
 
 
@@ -129,41 +132,41 @@ public class MinStack_155 {
     // 在链表头部添加和删除元素，和栈是类似的。设计结点，可以记录当前最小值。
     // 每个结点中的 min 记录了以该结点为头结点的链表中的最小值。
 
-    class Node {
-        int value;
-        int min;
-        Node next;
-
-        Node(int x, int min) {
-            this.value = x;
-            this.min = min;
-            this.next = null;
-        }
-    }
-
-    Node head = null;
-    public MinStack_155() {}
-
-    public void push(int x) {
-        if (head == null) {
-            head = new Node(x, x);
-        } else {
-            Node node = new Node(x, Math.min(x, head.min));
-            node.next = head;
-            head = node;
-        }
-    }
-
-    public void pop() {
-        head = head.next;
-    }
-
-    public int top() {
-        return head.value;
-    }
-
-    public int getMin() {
-        return head.min;
-    }
+    // class Node {
+    //     int value;
+    //     int min;
+    //     Node next;
+    //
+    //     Node(int x, int min) {
+    //         this.value = x;
+    //         this.min = min;
+    //         this.next = null;
+    //     }
+    // }
+    //
+    // Node head = null;
+    // public MinStack_155() {}
+    //
+    // public void push(int x) {
+    //     if (head == null) {
+    //         head = new Node(x, x);
+    //     } else {
+    //         Node node = new Node(x, Math.min(x, head.min));
+    //         node.next = head;
+    //         head = node;
+    //     }
+    // }
+    //
+    // public void pop() {
+    //     head = head.next;
+    // }
+    //
+    // public int top() {
+    //     return head.value;
+    // }
+    //
+    // public int getMin() {
+    //     return head.min;
+    // }
 
 }
