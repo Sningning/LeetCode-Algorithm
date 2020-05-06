@@ -49,6 +49,7 @@ public class LetterCombinationsOfAPhoneNumber_17 {
 
         if (index == digits.length()) {
             // index 到达 digits 的末尾，此时获得的 path 已经是一个解了
+            // res.add(path.toString());
             res.add(new String(path));
             return;
         }
@@ -68,6 +69,6 @@ public class LetterCombinationsOfAPhoneNumber_17 {
     public static void main(String[] args) {
 
         LetterCombinationsOfAPhoneNumber_17 instance = new LetterCombinationsOfAPhoneNumber_17();
-        System.out.println(instance.letterCombinations("234"));
+        System.out.println(instance.letterCombinations("23"));
     }
 }
