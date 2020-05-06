@@ -20,6 +20,11 @@ public class LetterCombinationsOfAPhoneNumber_17 {
 
     public List<String> letterCombinations(String digits) {
 
+        // 注意考虑：
+        // 1. 字符串的合法性，是否包含 1 等没有字母的键？本题题干说明不包含。
+        // 2. 输入空字符串应该怎样输出？本题输出空字符串。
+        // 3. 多个解的顺序性。本题题干说明不要求有序。
+
         if (digits == null || digits.length() == 0) {
             return res;
         }

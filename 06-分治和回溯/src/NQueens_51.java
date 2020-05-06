@@ -11,27 +11,18 @@ import java.util.*;
  */
 public class NQueens_51 {
 
+    // 通过3个set来分别记录列、主对角线、副对角线上Q的情况
+    Set<Integer> colSet = new HashSet<>();
+    Set<Integer> masterSet = new HashSet<>();
+    Set<Integer> slaveSet = new HashSet<>();
+
     List<List<String>> res = new LinkedList<>();
 
     public List<List<String>> solveNQueens(int n) {
 
-        // 通过3个set来分别记录列、主对角线、副对角线上Q的情况
-        Set<Integer> colSet = new HashSet<>();
-        Set<Integer> masterSet = new HashSet<>();
-        Set<Integer> slaveSet = new HashSet<>();
-
-        char[][] board = new char[n][n];
-        for (char[] chars : board) {
-            Arrays.fill(chars, '.');
-        }
-        dfs(n, 0, );
-        return res;
-    }
-
-
-    private List<List<String>> generate(List<List<String>> res) {
         return null;
     }
+
 
 
 }
