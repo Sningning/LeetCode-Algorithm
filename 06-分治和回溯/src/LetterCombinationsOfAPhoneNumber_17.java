@@ -16,6 +16,7 @@ import java.util.Map;
  */
 public class LetterCombinationsOfAPhoneNumber_17 {
 
+    // 声明为类的成员变量
     List<String> res = new LinkedList<>();
 
     public List<String> letterCombinations(String digits) {
@@ -37,23 +38,28 @@ public class LetterCombinationsOfAPhoneNumber_17 {
         map.put('7', "pqrs");
         map.put('8', "tuv");
         map.put('9', "wxyz");
+        // 为了避免拼接字符，这里使用了 StringBuilder，每次传入的就是 path
+        // 所以在循环最后要删除当前循环添加的字符
         StringBuilder path = new StringBuilder();
-        backtrack(digits, path, 0, map);
+        findCombination(digits, 0, path, map);
         return res;
     }
 
-    private void backtrack(String digits, StringBuilder path, int start, Map<Character, String> map) {
+    private void findCombination(String digits, int index, StringBuilder path, Map<Character, String> map) {
 
-        if (start == digits.length()) {
+        if (index == digits.length()) {
+            // index 到达 digits 的末尾，此时获得的 path 已经是一个解了
             res.add(new String(path));
             return;
         }
+        // c 记录 digits 字符串中 index 位置的数字字符
+        char c = digits.charAt(index);
+        // letters 记录 index 位置数字字符代表的字母
+        String letters = map.get(c);
 
-        String str = map.get(digits.charAt(start));
-
-        for (int i = 0; i < str.length(); i++) {
-            path.append(str.charAt(i));
-            backtrack(digits, path, start + 1, map);
+        for (int i = 0; i < letters.length(); i++) {
+            path.append(letters.charAt(i));
+            findCombination(digits, index + 1, path, map);
             path.deleteCharAt(path.length() - 1);
         }
 
@@ -62,6 +68,6 @@ public class LetterCombinationsOfAPhoneNumber_17 {
     public static void main(String[] args) {
 
         LetterCombinationsOfAPhoneNumber_17 instance = new LetterCombinationsOfAPhoneNumber_17();
-        System.out.println(instance.letterCombinations("23"));
+        System.out.println(instance.letterCombinations("234"));
     }
 }
