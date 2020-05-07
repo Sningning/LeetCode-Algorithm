@@ -130,26 +130,6 @@ public class TrappingRainWater_42 {
         // 无论右边将来会不会出现更大的 rightMax，都不影响这个结果。
         // 所以当 leftMax < rightMax 时，我们就希望去处理 leftIdx 下标，反之，我们希望去处理 rightIdx 下标。
 
-        // int res = 0;
-        // // 特判
-        // if (height == null || height.length < 3)  return res;
-        //
-        // int leftIdx = 0;
-        // int rightIdx = height.length - 1;
-        // int leftMax = 0;  // 记录当前柱子的左侧柱子最大值
-        // int rightMax = 0; // 记录当前柱子的右侧柱子最大值
-        // while (leftIdx <= rightIdx) {
-        //     if (leftMax <= rightMax) {
-        //         res += Math.max(leftMax - height[leftIdx], 0);
-        //         leftMax = Math.max(leftMax, height[leftIdx++]);
-        //     } else {
-        //         res += Math.max(rightMax - height[rightIdx], 0);
-        //         rightMax = Math.max(rightMax, height[rightIdx--]);
-        //     }
-        // }
-        // return res;
-
-
         int res = 0;
         // 特判
         if (height == null || height.length < 3)  return res;
@@ -159,14 +139,34 @@ public class TrappingRainWater_42 {
         int leftMax = 0;  // 记录当前柱子的左侧柱子最大值
         int rightMax = 0; // 记录当前柱子的右侧柱子最大值
         while (leftIdx <= rightIdx) {
-            leftMax = Math.max(leftMax, height[leftIdx]);
-            rightMax = Math.max(rightMax, height[rightIdx]);
-            if (leftMax <= rightMax)
-                res += leftMax - height[leftIdx++];
-            else
-                res += rightMax - height[rightIdx--];
+            if (leftMax <= rightMax) {
+                res += Math.max(leftMax - height[leftIdx], 0);
+                leftMax = Math.max(leftMax, height[leftIdx++]);
+            } else {
+                res += Math.max(rightMax - height[rightIdx], 0);
+                rightMax = Math.max(rightMax, height[rightIdx--]);
+            }
         }
         return res;
+
+
+        // int res = 0;
+        // // 特判
+        // if (height == null || height.length < 3)  return res;
+        //
+        // int leftIdx = 0;
+        // int rightIdx = height.length - 1;
+        // int leftMax = 0;  // 记录当前柱子的左侧柱子最大值
+        // int rightMax = 0; // 记录当前柱子的右侧柱子最大值
+        // while (leftIdx <= rightIdx) {
+        //     leftMax = Math.max(leftMax, height[leftIdx]);
+        //     rightMax = Math.max(rightMax, height[rightIdx]);
+        //     if (leftMax <= rightMax)
+        //         res += leftMax - height[leftIdx++];
+        //     else
+        //         res += rightMax - height[rightIdx--];
+        // }
+        // return res;
 
     }
 
