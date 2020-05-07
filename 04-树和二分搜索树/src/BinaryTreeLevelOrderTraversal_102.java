@@ -12,7 +12,7 @@ public class BinaryTreeLevelOrderTraversal_102 {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
 
-        // 1. 队列 、 迭代
+        // 1. BFS
 
         if (root == null) return res;
         Queue<TreeNode> queue = new ArrayDeque<>();
@@ -36,7 +36,7 @@ public class BinaryTreeLevelOrderTraversal_102 {
         return res;
 
 
-        // 2. 递归
+        // 2. DFS
 
 
 

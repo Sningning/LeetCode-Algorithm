@@ -15,7 +15,7 @@ public class NAryTreeLevelOrderTraversal_429 {
     public List<List<Integer>> levelOrder(Node root) {
 
 
-        // 1. 迭代 / 队列
+        // 1. BFS
 
         // if (root == null) return new ArrayList<>();
         // Queue<Node> queue = new LinkedList<>();
@@ -37,7 +37,7 @@ public class NAryTreeLevelOrderTraversal_429 {
         // return res;
 
 
-        // 2. 递归
+        // 2. DFS
         List<List<Integer>> res = new ArrayList<>();
         traverseNode(root, 0, res);
         return res;
