@@ -39,7 +39,7 @@ public class NAryTreeLevelOrderTraversal_429 {
 
         // 2. DFS
         List<List<Integer>> res = new ArrayList<>();
-        traverseNode(root, 0, res);
+        traverseNode(root, 1, res);
         return res;
 
     }
@@ -48,9 +48,9 @@ public class NAryTreeLevelOrderTraversal_429 {
 
         if (node == null) return;
         // 判断是否是新的一层
-        if (res.size() <= depth)
+        if (res.size() < depth)
             res.add(new ArrayList<>());
-        res.get(depth).add(node.val);
+        res.get(depth - 1).add(node.val);
         // 处理子节点
         for (Node child : node.children)
             traverseNode(child, depth + 1, res);
