@@ -18,6 +18,10 @@ public class LowestCommonAncestorOfBinaryTree_236 {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
+        // 根据 master 公式：T(N) = a * (T(N) / b) + O(N^d)
+        // a = 2, b = 2, d = 0
+        // logb a > d, 时间复杂度：O(N^(logb a)) = O(N)
+
         // 递归终止条件：如果当前节点为空，返回 null；如果当前节点等于 p 或 q，则返回当前节点
         if (root == null || root == p || root == q) return root;
 
