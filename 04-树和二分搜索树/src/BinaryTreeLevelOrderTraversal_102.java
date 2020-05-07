@@ -51,10 +51,12 @@ public class BinaryTreeLevelOrderTraversal_102 {
     //         return;
     //     }
     //
-    //     // 判断是否是新的一层
+    //     // 判断是否是当前层，如果 depth > res.size()
+    //     // 说明进入了新的一层
     //     if (res.size() < depth) {
     //         res.add(new LinkedList<>());
     //     }
+    //     // 在当前层加入当前结点值，层数从 1 开始，对应数组的 index == 0 位置，所以减一
     //     res.get(depth - 1).add(node.val);
     //     dfs(node.left, depth + 1, res);
     //     dfs(node.right, depth + 1, res);
