@@ -1,8 +1,5 @@
 
 /**
- * @Classname: Solution3
- * @Description: TODO
- *
  * 采用递归的方式
  *
  * @author: Song Ningning

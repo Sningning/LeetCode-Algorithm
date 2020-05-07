@@ -1,6 +1,4 @@
 /**
- * @Classname: NumArray2
- * @Description: TODO
  * @author: Song Ningning
  * @date: 2020-03-16 14:58
  */

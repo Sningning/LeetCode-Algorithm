@@ -1,8 +1,6 @@
 package test;
 
 /**
- * @ClassName: ListNode
- * @Description: TODO
  * @Author: Song Ningning
  * @Date: 2020-04-26 11:16
  */

@@ -1,7 +1,4 @@
 /**
- * @Classname: NumArray
- * @Description: TODO
- *
  * 给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
  *
  * 示例：

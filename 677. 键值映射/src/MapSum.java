@@ -1,9 +1,6 @@
 import java.util.TreeMap;
 
 /**
- * @Classname: MapSum
- * @Description: TODO
- *
  * 实现一个 MapSum 类里的两个方法，insert 和 sum。
  *
  * 对于方法 insert，你将得到一对（字符串，整数）的键值对。字符串表示键，整数表示值。如果键已经存在，那么原来的键值对将被替代成新的键值对。

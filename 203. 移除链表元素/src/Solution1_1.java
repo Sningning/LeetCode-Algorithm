@@ -1,6 +1,4 @@
 /**
- * @Classname: Solution2
- * @Description: TODO
  * @author: Song Ningning
  * @date: 2020-03-04 23:54
  */

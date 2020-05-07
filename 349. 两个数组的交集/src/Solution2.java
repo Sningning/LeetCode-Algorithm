@@ -2,8 +2,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 /**
- * @Classname: Solution2
- * @Description: TODO
  * @author: Song Ningning
  * @date: 2020-03-11 18:37
  */

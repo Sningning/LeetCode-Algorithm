@@ -1,9 +1,6 @@
 import java.util.TreeMap;
 
 /**
- * @Classname: WordDictionary
- * @Description: TODO
- *
  * 设计一个支持以下两种操作的数据结构：
  *
  *    void addWord(word)
