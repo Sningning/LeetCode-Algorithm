@@ -1,7 +1,10 @@
 import java.util.*;
 
 /**
- * TODO 递归解法
+ * 102. 二叉树的层序遍历
+ * 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。
+ *
+ * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
  *
  * @Author: Song Ningning
  * @Date: 2020-05-06 16:23
@@ -38,8 +41,22 @@ public class BinaryTreeLevelOrderTraversal_102 {
 
         // 2. DFS
 
-
-
-
+        // dfs(root, 1, res);
+        // return res;
     }
+
+    // private void dfs(TreeNode node, int depth, List<List<Integer>> res) {
+    //
+    //     if (node == null) {
+    //         return;
+    //     }
+    //
+    //     // 判断是否是新的一层
+    //     if (res.size() < depth) {
+    //         res.add(new LinkedList<>());
+    //     }
+    //     res.get(depth - 1).add(node.val);
+    //     dfs(node.left, depth + 1, res);
+    //     dfs(node.right, depth + 1, res);
+    // }
 }
