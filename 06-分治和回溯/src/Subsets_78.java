@@ -25,7 +25,7 @@ public class Subsets_78 {
         return res;
     }
 
-    private void backtrack(int[] nums, List<Integer> path, int begin) {
+    private void backtrack(int[] nums, List<Integer> path, int index) {
 
         // 思考角度1：按照选出几个数，类似于全排列，对于[1,2,3]，开始时当前可选 1,2,3
         // 对于 1，又可选择 2,3...，画出来的就是一个多叉树，此时要记录所有结点
@@ -33,11 +33,12 @@ public class Subsets_78 {
 
         // 因为要记录所有结点，可以在最开始或者最后记录下结点信息
         // 这里选择在开始就记录结点信息（输出就是树的前序遍历结果）
+
         res.add(new LinkedList<>(path));
 
         //  i 从 start 开始递增
         // 同时 for 循环也隐含地包含了终止的条件，即 i == nums.length - 1
-        for (int i = begin; i < nums.length; i++) {
+        for (int i = index; i < nums.length; i++) {
             // 做选择
             path.add(nums[i]);
             // 进入下层
