@@ -34,31 +34,31 @@ public class GroupAnagrams_49 {
         //        "ant" : ["nat", "tan].
         //        "abt" : ["bat"] }
 
-        // if (strs == null || strs.length == 0)  return new ArrayList<>();
-        // Map<String, List<String>> map = new HashMap<>();
-        // for (String s : strs) {
-        //     char[] c = s.toCharArray();
-        //     Arrays.sort(c);
-        //     String key = String.valueOf(c);
-        //     if (!map.containsKey(key))
-        //         map.put(key, new ArrayList<>());
-        //     map.get(key).add(s);
-        // }
-        // return new ArrayList<>(map.values());
+        if (strs == null || strs.length == 0)  return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            String key = String.valueOf(c);
+            if (!map.containsKey(key))
+                map.put(key, new ArrayList<>());
+            map.get(key).add(s);
+        }
+        return new ArrayList<>(map.values());
 
 
         // 2. 无需排序。
 
-        if (strs == null || strs.length == 0)  return new ArrayList<>();
-        Map<String, List<String>> map = new HashMap<>();
-        for (String s : strs) {
-            char[] alpha = new char[26];
-            for (char c : s.toCharArray()) alpha[c - 'a'] ++;
-            String key = String.valueOf(alpha);
-            if (!map.containsKey(key)) map.put(key, new ArrayList<>());
-            map.get(key).add(s);
-        }
-        return new ArrayList<>(map.values());
+        // if (strs == null || strs.length == 0)  return new ArrayList<>();
+        // Map<String, List<String>> map = new HashMap<>();
+        // for (String s : strs) {
+        //     char[] alpha = new char[26];
+        //     for (char c : s.toCharArray()) alpha[c - 'a'] ++;
+        //     String key = String.valueOf(alpha);
+        //     if (!map.containsKey(key)) map.put(key, new ArrayList<>());
+        //     map.get(key).add(s);
+        // }
+        // return new ArrayList<>(map.values());
 
     }
 
