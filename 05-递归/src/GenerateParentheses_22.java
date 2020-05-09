@@ -45,7 +45,7 @@ public class GenerateParentheses_22 {
     // LinkedList<String> res = new LinkedList<>();
     //
     // public List<String> generateParenthesis(int n) {
-    //
+    //     // 用 StringBuilder 避免拼串
     //     StringBuilder path = new StringBuilder();
     //     generate(n, n, path);
     //     return res;
