@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class GenerateParentheses_22 {
 
+    // 1、递归
+
     // 定义一个全局的 List
     ArrayList<String> res = new ArrayList<>();
 
@@ -36,6 +38,35 @@ public class GenerateParentheses_22 {
         if (right < left)
             generate(left, right + 1, n, curStr + ")");
     }
+
+
+    // 2. 回溯
+
+    // LinkedList<String> res = new LinkedList<>();
+    //
+    // public List<String> generateParenthesis(int n) {
+    //
+    //     StringBuilder path = new StringBuilder();
+    //     generate(n, n, path);
+    //     return res;
+    // }
+    //
+    // private void generate(int left, int right, StringBuilder path) {
+    //     if (left == 0 && right == 0) {
+    //         res.add(new String(path));
+    //         return;
+    //     }
+    //     if (left > 0) {
+    //         path.append("(");
+    //         generate(left - 1, right, path);
+    //         path.deleteCharAt(path.length() - 1);
+    //     }
+    //     if (right > left) {
+    //         path.append(")");
+    //         generate(left, right - 1, path);
+    //         path.deleteCharAt(path.length() - 1);
+    //     }
+    // }
 
     public static void main(String[] args) {
 
