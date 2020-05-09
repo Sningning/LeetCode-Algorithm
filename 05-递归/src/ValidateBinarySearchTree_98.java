@@ -62,10 +62,15 @@ public class ValidateBinarySearchTree_98 {
 
         if (root == null)
             return true;
+        // 如果 root 的左孩子不是 BST，返回 false
         if (!isValidBST(root.left))
             return false;
+        // 如果 root 左孩子是 BST
+        // 再看 root.val
         if (root.val <= pre)
             return false;
+        // 如果 root 的左孩子是 BST，且 root.val 满足条件
+        // 则更新 root，看 root 的右孩子是不是 BST
         pre = root.val;
         return isValidBST(root.right);
 
