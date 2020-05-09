@@ -14,6 +14,10 @@ public class MaximumDepthOfBinaryTree_104 {
 
     public int maxDepth(TreeNode root) {
 
+        // 递归。时间复杂度：O(N)；
+        // 空间复杂度：最坏情况退化为链表，树的高度为N，空间复杂度O(N)；
+        //           最好情况下完全平衡，树的高度logN，空间复杂度O(logN)
+
         // 递归终止条件：叶子节点，深度为 0
         if (root == null) return 0;
 
