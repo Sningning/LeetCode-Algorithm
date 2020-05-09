@@ -41,11 +41,11 @@ public class BinaryTreeLevelOrderTraversal_102 {
 
         // 2. DFS
 
-        // dfs(root, 1, res);
+        // dfs(root, 1);
         // return res;
     }
 
-    // private void dfs(TreeNode node, int depth, List<List<Integer>> res) {
+    // private void dfs(TreeNode node, int depth) {
     //
     //     if (node == null) {
     //         return;
@@ -58,7 +58,7 @@ public class BinaryTreeLevelOrderTraversal_102 {
     //     }
     //     // 在当前层加入当前结点值，层数从 1 开始，对应数组的 index == 0 位置，所以减一
     //     res.get(depth - 1).add(node.val);
-    //     dfs(node.left, depth + 1, res);
-    //     dfs(node.right, depth + 1, res);
+    //     dfs(node.left, depth + 1);
+    //     dfs(node.right, depth + 1);
     // }
 }
