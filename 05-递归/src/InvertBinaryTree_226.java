@@ -39,11 +39,9 @@ public class InvertBinaryTree_226 {
         if (node == null) return null;
 
         // 递归调用翻转左右结点
-        TreeNode left = invert(node.left);
-        TreeNode right = invert(node.right);
-        // 更新当前结点的左右孩子
-        node.left = right;
-        node.right = left;
+        TreeNode temp = invert(node.left);
+        node.left = invert(node.right);
+        node.right = temp;
         return node;
     }
 }
