@@ -56,7 +56,8 @@ public class PowXN_50 {
 
         double subRes = fastPow(x, n / 2);
 
-        return n % 2 == 0 ? subRes * subRes : subRes * subRes * x;
+        // return n % 2 == 0 ? subRes * subRes : subRes * subRes * x;
+        return (n & 1) == 0 ? subRes * subRes : subRes * subRes * x;
     }
 
 
