@@ -1,5 +1,8 @@
 package twodimension;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 200. 岛屿数量
  * 给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
@@ -14,13 +17,13 @@ package twodimension;
  */
 public class NumberOfIslands_200 {
 
-    // floodfill算法，本质也是递归
+    // 1. floodfill算法，本质也是递归 dfs
 
     // 记录岛屿数量
     int res = 0;
 
     // 记录字符数组的大小
-    int m, n;
+    int rows, cols;
     // 记录当前字符是否被考虑过
     boolean[][] visited;
     //       x-1,y
@@ -31,16 +34,16 @@ public class NumberOfIslands_200 {
 
     public int numIslands(char[][] grid) {
 
-        m = grid.length;
-        if (m == 0) {
+        rows = grid.length;
+        if (rows == 0) {
             return 0;
         }
-        n = grid[0].length;
+        cols = grid[0].length;
 
-        visited = new boolean[m][n];
+        visited = new boolean[rows][cols];
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 if (grid[i][j] == '1' && !visited[i][j]) {
                     // 只有当前是 '1'，且没被访问过，才是一个新的岛屿
                     res ++;
@@ -70,6 +73,60 @@ public class NumberOfIslands_200 {
 
     // 判断 x y 是否越界
     private boolean inArea(int x, int y) {
-        return x >= 0 && x < m && y >= 0 && y < n;
+        return x >= 0 && x < rows && y >= 0 && y < cols;
+    }
+}
+
+
+// 2. bfs / 借助队列
+// 类似于层序遍历，每次取出队首元素 (x,y)，并加入 (x,y) 周围的岛屿，当队列为空时，
+// 和 (i, j) 相邻的岛屿全部找到，计数器加一，继续寻找下一个位置
+
+class Solution_bfs {
+
+    int rows, cols;
+
+    public int numIslands(char[][] grid) {
+        rows = grid.length;
+        if (rows == 0) {
+            return 0;
+        }
+        cols = grid[0].length;
+        int res = 0;
+        boolean[][] visited = new boolean[rows][cols];
+        int[][] direction = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+        // Queue<int[]> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '1' && !visited[i][j]) {
+                    res ++;
+                    // 小技巧：把坐标转换为一个数字,否则，得用一个数组存
+                    // queue.add(new int[]{i, j});
+                    queue.add((i * cols) + j);
+                    visited[i][j] = true;
+                    while (!queue.isEmpty()) {
+                        int cur = queue.poll();
+                        int curX = cur / cols;
+                        int curY = cur % cols;
+                        for (int k = 0; k < 4; k++) {
+                            int newX = curX + direction[k][0];
+                            int newY = curY + direction[k][1];
+                            if (inArea(newX, newY) && !visited[newX][newY] && grid[newX][newY] == '1') {
+                                queue.add((newX * cols) + newY);
+                                visited[newX][newY] = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    // 判断 x y 是否越界
+    private boolean inArea(int x, int y) {
+        return x >= 0 && x < rows && y >= 0 && y < cols;
     }
 }
