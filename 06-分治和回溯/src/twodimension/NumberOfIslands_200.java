@@ -14,7 +14,7 @@ package twodimension;
  */
 public class NumberOfIslands_200 {
 
-    // floodfill算法，本质也是回溯
+    // floodfill算法，本质也是递归
 
     // 记录岛屿数量
     int res = 0;
