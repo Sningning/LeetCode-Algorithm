@@ -19,7 +19,7 @@ package twodimension;
 public class SurroundedRegions_130 {
 
     // 和 200 题类似，注意，如果 O 在边上，不可以被填充，如果在里面，但是和边上的 O 相连，也不能被填充。
-    // 所以先将边界的 O 以及和边界上 O 连接的 O 全部处理掉，剩下的 O 肯定就是可以被 x 填充的
+    // 所以先将边界的 O 以及和边界上 O 连接的 O 全部处理掉，剩下的 O 肯定就是可以被 X 填充的
 
     int rows, cols;
     private int[][] direction = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
