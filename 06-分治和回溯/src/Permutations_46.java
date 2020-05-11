@@ -52,17 +52,16 @@ public class Permutations_46 {
 
         for (int i = 0; i < nums.length; i ++) {
             // 排除不合法的选择
-            if (used[i])
-                continue;
-
-            // 做选择
-            path.add(nums[i]);
-            used[i] = true;
-            // 进入下一层决策树
-            dfs(nums, path, used);
-            // 取消选择
-            used[i] = false;
-            path.remove(path.size() - 1);
+            if (!used[i]) {
+                // 做选择
+                path.add(nums[i]);
+                used[i] = true;
+                // 进入下一层决策树
+                dfs(nums, path, used);
+                // 取消选择
+                used[i] = false;
+                path.remove(path.size() - 1);
+            }
         }
 
     }
