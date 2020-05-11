@@ -157,3 +157,7 @@ class Solution {
     }
 
 }
+
+class Solution2 {
+    // 位运算
+}
