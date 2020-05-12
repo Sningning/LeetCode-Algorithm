@@ -1,4 +1,4 @@
-package test;
+package array;
 
 /**
  * 66. 加一【简单】

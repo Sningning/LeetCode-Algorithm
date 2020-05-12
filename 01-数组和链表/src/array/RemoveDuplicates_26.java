@@ -1,4 +1,4 @@
-package test;
+package array;
 
 /**
  * 26. 删除排序数组中的重复项【简单】

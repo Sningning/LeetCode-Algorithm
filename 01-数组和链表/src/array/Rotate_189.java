@@ -1,4 +1,4 @@
-package test;
+package array;
 
 /**
  * 189. 旋转数组【简单】

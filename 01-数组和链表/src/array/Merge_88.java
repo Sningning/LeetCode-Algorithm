@@ -1,4 +1,4 @@
-package test;
+package array;
 
 /**
  * 88. 合并两个有序数组【简单】
