@@ -18,6 +18,7 @@ import java.util.Queue;
 public class NumberOfIslands_200 {
 
     // 1. floodfill算法，本质也是递归 dfs
+    // 另一种写法见 Solution1
 
     // 记录岛屿数量
     int res = 0;
@@ -41,7 +42,6 @@ public class NumberOfIslands_200 {
         cols = grid[0].length;
 
         visited = new boolean[rows][cols];
-
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (grid[i][j] == '1' && !visited[i][j]) {
@@ -128,5 +128,39 @@ class Solution_bfs {
     // 判断 x y 是否越界
     private boolean inArea(int x, int y) {
         return x >= 0 && x < rows && y >= 0 && y < cols;
+    }
+}
+
+
+// 更简洁写的 floodfill 解法
+class Solution1 {
+    public int numIslands(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int res = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '1') {
+                    res++;
+                    dfs(grid, i, j, rows, cols);
+                }
+            }
+        }
+        return res;
+    }
+
+    private void dfs(char[][] grid, int i, int j, int rows, int cols) {
+        if (i < 0 || i >= rows || j < 0 || j >= cols || grid[i][j] != '1') {
+            return;
+        }
+        // 标记作为已经访问过
+        grid[i][j] = '2';
+        dfs(grid, i + 1, j, rows, cols);
+        dfs(grid, i - 1, j, rows, cols);
+        dfs(grid, i, j + 1, rows, cols);
+        dfs(grid, i, j - 1, rows, cols);
     }
 }
