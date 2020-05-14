@@ -14,17 +14,41 @@ public class SearchInsertPosition_35 {
 
     public int searchInsert(int[] nums, int target) {
 
+        // 二分写法 1
+
+        // int left = 0;
+        // int right = nums.length - 1;
+        // while (left <= right) {
+        //     int mid = left + ((right - left) >>> 1);
+        //     if (nums[mid] == target)
+        //         return mid;
+        //     else if (nums[mid] < target)
+        //         left = mid + 1;
+        //     else if (nums[mid] > target)
+        //         right = mid - 1;
+        // }
+        // return left;
+
+
+        // 二分写法 2
+
+        int len = nums.length;
+        if (nums[len - 1] < target)
+            return len;
         int left = 0;
-        int right = nums.length - 1;
-        while (left <= right) {
+        int right = len - 1;
+        while (left < right) {
             int mid = left + ((right - left) >>> 1);
-            if (nums[mid] == target)
-                return mid;
-            else if (nums[mid] < target)
+            // 当 nums[mid] 严格小于目标元素时，mid 一定不是解
+            if (nums[mid] < target)
+                // 因为 mid 肯定不是解了
+                // 所以下一轮搜索区间 [mid + 1, right]
                 left = mid + 1;
-            else if (nums[mid] > target)
-                right = mid - 1;
+            else
+                right = mid;
         }
         return left;
+
+
     }
 }
