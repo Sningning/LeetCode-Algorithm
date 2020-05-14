@@ -16,13 +16,13 @@ public class ValidPerfectSquare_367 {
         long left = 0;
         long right = (num >>> 1) + 1;
         while (left <= right) {
-            long mid = (left + right) >>> 1;
+            long mid = left + ((right - left) >>> 1);
             long square = mid * mid;
             if (square == num) {
                 return true;
             } else if (square < num) {
                 left = mid + 1;
-            } else {
+            } else if (square > num){
                 right = mid  - 1;
             }
         }
