@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MajorityElement2_229 {
 
-    public List<Integer> majorityElement(int[] nums) {
+    public static List<Integer> majorityElement(int[] nums) {
 
         // 1. 哈希表。时间：O(N)；空间：O(N)
         // 空间复杂度没有达到 O(1)
@@ -101,9 +101,7 @@ public class MajorityElement2_229 {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3};
-        MajorityElement2_229 instance = new MajorityElement2_229();
-        instance.majorityElement(nums);
-
+        int[] nums = new int[]{1, 2};
+        System.out.println(majorityElement(nums));
     }
 }
