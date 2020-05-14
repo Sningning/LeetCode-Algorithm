@@ -23,11 +23,13 @@ public class SqrtX_69 {
         long right = (x >>> 1) + 1;
         while (left < right) {
             long mid = left + ((right -left + 1) >>> 1);
-            if (mid * mid > x) {
+            long square = mid * mid;
+            if (square == x)
+                return (int) mid;
+            else if (square > x)
                 right = mid - 1;
-            } else {
+            else if (square < x)
                 left = mid;
-            }
         }
         return (int) left;
 
