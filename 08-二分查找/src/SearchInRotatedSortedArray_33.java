@@ -14,7 +14,7 @@
  * @Author: Song Ningning
  * @Date: 2020-05-12 18:52
  */
-public class SearchInRotatedSortedArray {
+public class SearchInRotatedSortedArray_33 {
 
     public int search(int[] nums, int target) {
 
