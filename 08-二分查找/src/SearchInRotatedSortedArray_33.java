@@ -18,6 +18,46 @@ public class SearchInRotatedSortedArray_33 {
 
     public int search(int[] nums, int target) {
 
-        return -1;
+        // 1. 暴力。但是不符合 复杂度必须是 O(log n) 要求
+
+        // for (int i = 0; i < nums.length; i++) {
+        //     if (nums[i] == target)
+        //         return i;
+        // }
+        // return -1;
+
+
+        // 2. 二分
+        // 很容易能够根据 mid 索引的位置和第 1 个索引的位置（或者最后一个索引的位置）判断 mid 落在哪个有序的区间里。
+        // 因此 mid 前后必定有一部分是有序的
+
+        int len = nums.length;
+        if (len == 0)
+            return -1;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + ((right - left) >>> 1);
+            if (nums[0] < nums[mid]) {
+                // [left, mid] 严格有序
+                if (nums[0] <= target && target <= nums[mid]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                // 因为没有重复元素，所以是严格大于
+                // nums[0] > nums[mid]
+                // [mid, right] 严格有序
+                // 因为 left 的更新是 left = mid, 所以中位数应该是右中位数
+                // 但为了统一，所以使用 nums[mid+1], left = mid + 1; right = mid
+                if (nums[mid + 1] <= target && target <= nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+        }
+        return nums[left] == target ? left : -1;
     }
 }
