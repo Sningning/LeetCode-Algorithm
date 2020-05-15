@@ -48,10 +48,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray_34 {
             }
         }
         // target 可能不存在于数组中，需要进行判断
-        if (nums[left] == target) {
-            return left;
-        }
-        return -1;
+        return nums[left] == target ? left : -1;
     }
 
 
@@ -80,6 +77,5 @@ public class FindFirstAndLastPositionOfElementInSortedArray_34 {
         // 说明 target 在数组中一定存在，不需要再额外判断
         return left;
     }
-
 
 }
