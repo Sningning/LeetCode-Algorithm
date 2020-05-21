@@ -29,36 +29,58 @@
  */
 public class ClimbingStairs_70 {
 
-    public int climbStairs(int n) {
-
-        // 方法一：斐波那契数。（见递归部分）
-
-
-        // 方法二：记忆化递归
-        // 把每一步的结果存储在 memo 数组之中，
-        // 每当函数再次被调用，如果已经存在于 memo 中，就直接从 memo 数组返回结果
-        // 否则的话就计算完后，存入 memo 中再返回
-
-        // int[] memo = new int[n + 1];
-        // return calcWays(n, memo);
-
-
-        // 方法三：动态规划
-        int[] dp = new int[n + 1];
-        dp[0] = dp[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
+    /**
+     * 方法一：斐波那契数。
+     */
+    static class Solution1 {
+        public int climbStairs(int n) {
+            int f1 = 1, f2 = 1, sum = 1;
+            for (int i = 1; i < n; i++) {
+                sum = f1 + f2;
+                f1 = f2;
+                f2 = sum;
+            }
+            return sum;
         }
-        return dp[n];
     }
 
-    // 记忆化递归
-    // private int calcWays(int n, int[] memo) {
-    //     if (n == 0 || n == 1)
-    //         return 1;
-    //     if (memo[n] == 0)
-    //         memo[n] = calcWays(n - 1, memo) + calcWays(n - 2, memo);
-    //     return memo[n];
-    // }
+
+    /**
+     * 方法二：记忆化递归
+     * 把每一步的结果存储在 memo 数组之中，
+     * 每当函数再次被调用，如果已经存在于 memo 中，就直接从 memo 数组返回结果
+     * 否则的话就计算完后，存入 memo 中再返回
+     */
+    static class Solution2 {
+
+        public int climbStairs(int n) {
+            int[] memo = new int[n + 1];
+            return calcWays(n, memo);
+        }
+
+        private int calcWays(int n, int[] memo) {
+            if (n == 0 || n == 1)
+                return 1;
+            if (memo[n] == 0)
+                memo[n] = calcWays(n - 1, memo) + calcWays(n - 2, memo);
+            return memo[n];
+        }
+    }
+
+
+    /**
+     * 方法三：动态规划
+     */
+    static class Solution3 {
+
+        public int climbStairs(int n) {
+            int[] dp = new int[n + 1];
+            dp[0] = dp[1] = 1;
+            for (int i = 2; i <= n; i++) {
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }
+            return dp[n];
+        }
+    }
 
 }
