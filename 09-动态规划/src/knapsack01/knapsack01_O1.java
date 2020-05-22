@@ -32,13 +32,13 @@ public class knapsack01_O1 {
 
         for (int i = 1; i < n; i++) {
             for (int j = 0; j <= C; j++) {
-                dp[i ^ 1][j] = dp[(i - 1) ^ 1][j];
+                dp[i & 1][j] = dp[(i - 1) & 1][j];
                 if (j >= w[i]) {
-                    dp[i ^ 1][j] = Math.max(dp[i ^ 1][j], v[i] + dp[(i - 1) ^ 1][j - w[i]]);
+                    dp[i & 1][j] = Math.max(dp[i & 1][j], v[i] + dp[(i - 1) & 1][j - w[i]]);
                 }
             }
         }
-        return dp[(n - 1) ^ 1][C];
+        return dp[(n - 1) & 1][C];
     }
 
     public static void main(String[] args) {
