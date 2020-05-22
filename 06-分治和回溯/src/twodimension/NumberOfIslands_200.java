@@ -144,6 +144,7 @@ class Solution1 {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (grid[i][j] == '1') {
+                    // 这里只需判断是否为 1 就可以，因为考虑过的都已经被标记为 2
                     res++;
                     dfs(grid, i, j, rows, cols);
                 }
