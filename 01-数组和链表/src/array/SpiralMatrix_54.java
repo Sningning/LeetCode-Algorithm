@@ -41,10 +41,9 @@ public class SpiralMatrix_54 {
         int c = m.length - 1;
         int d = m[0].length - 1;
 
-        while (a <= c && b <=d) {
+        while (a <= c && b <= d) {
             printEdge(m, a++, b++, c--, d--);
         }
-
         return res;
     }
 
