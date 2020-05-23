@@ -34,5 +34,14 @@ public class RemoveDuplicates_26 {
             }
         }
         return i + 1;
+
+
+        // if (nums.length == 0) return 0;
+        // int i = 0, j = 1;
+        // while (j < nums.length) {
+        //     if (nums[j] != nums[i]) nums[++i] = nums[j++];
+        //     else j++;
+        // }
+        // return i + 1;
     }
 }
