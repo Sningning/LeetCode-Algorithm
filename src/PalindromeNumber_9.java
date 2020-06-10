@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 /**
  * 9. 回文数
  * 判断一个整数是否是回文数。
