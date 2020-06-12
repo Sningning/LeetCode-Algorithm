@@ -47,8 +47,8 @@ public class BinaryTreePaths_257 {
         // 到达了叶子结点
         if (node.left == null && node.right == null) {
             StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < path.size(); i++) {
-                builder.append(path.get(i));
+            for (Integer num : path) {
+                builder.append(num);
                 builder.append("->");
             }
             // 下面两行是删掉最后一个箭头
