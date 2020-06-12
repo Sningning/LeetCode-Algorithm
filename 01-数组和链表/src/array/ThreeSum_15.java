@@ -75,6 +75,8 @@ public class ThreeSum_15 {
             if (nums[i] > 0) {
                 return res;
             }
+            // 注意这里不能写成 if (nums[i] == nums[i + 1]) continue;
+            // 比如 -1 -1 2 这种情况使用上面条件就会跳过该解
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;  // 去重
             }
