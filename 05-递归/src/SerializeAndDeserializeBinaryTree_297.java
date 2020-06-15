@@ -17,52 +17,144 @@ import java.util.List;
  */
 public class SerializeAndDeserializeBinaryTree_297 {
 
-    // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
-        return serialize(root, "");
-    }
+    static class Solution1 {
 
+        /**
+         * 题目没有限定执行逻辑，他的调用方法是：
+         * Codec codec = new Codec();
+         * codec.deserialize(codec.serialize(root));
+         * 因此只要求能用写的函数序列化和反序列化即可。
+         *
+         * 考虑几种遍历方式：前序、中序、后序、层序、
+         * 如果二叉树的序列化是从根结点开始，那么反序列化的时候读到第一个元素时就可以进行操作，
+         * 因此考虑 前序遍历 或者 层序遍历。
+         *
+         * 注意的是，遇到空结点不能直接返回，需要标注为 null。
+         */
+    
+        /**
+         * 层序遍历
+         *     1
+         *    / \
+         *   2   3
+         *      / \
+         *     4   5
+         * 序列化结果：1,2,3,null,null,4,5,null,null,null,null,
+         */
+    
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
 
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
-        String[] data_array = data.split(",");
-        List<String> data_list = new LinkedList<>(Arrays.asList(data_array));
-        return deserialize(data_list);
-    }
-
-
-    private String serialize(TreeNode node, String str) {
-
-        if (node == null) return str += "null,";
-
-        str += node.val + ",";
-        str = serialize(node.left, str);
-        str = serialize(node.right, str);
-        return str;
-    }
-
-
-    private TreeNode deserialize(List<String> list) {
-
-        if (list.size() == 0) return null;
-        if (list.get(0).equals("null")) {
-            list.remove(0);
-            return null;
+            if (root == null) {
+                return "null";
+            }
+            StringBuilder res = new StringBuilder();
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.poll();
+                if (node == null) {
+                    res.append("null,");
+                } else {
+                    res.append(node.val).append(",");
+                    queue.offer(node.left);
+                    queue.offer(node.right);
+                }
+            }
+            return res.toString();
         }
+    
 
-        TreeNode node = new TreeNode(Integer.parseInt(list.get(0)));
-        list.remove(0);
-        node.left = deserialize(list);
-        node.right = deserialize(list);
-        return node;
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+
+            if (data.equals("null")) {
+                return null;
+            }
+            // "1,2,3,null,null,4,5,null,null,null,null," 分割后变成
+            // ["1" "2" "3" "null" "null" "4" "5" "null" "null" "null" "null"]
+            String[] values = data.split(",");
+            Queue<TreeNode> queue = new LinkedList<>();
+            TreeNode root = new TreeNode(Integer.parseInt(values[0]));
+            queue.offer(root);
+            int index = 1;
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.poll();
+                if (!values[index].equals("null")) {
+                    node.left = new TreeNode(Integer.parseInt(values[index]));
+                    queue.offer(node.left);
+                }
+                index++;
+                if (!values[index].equals("null")) {
+                    node.right = new TreeNode(Integer.parseInt(values[index]));
+                    queue.offer(node.right);
+                }
+                index++;
+            }
+            return root;
+        }
     }
 
 
-    public static void main(String[] args) {
+    static class Solution2 {
 
-        SerializeAndDeserializeBinaryTree_297 tree = new SerializeAndDeserializeBinaryTree_297();
-        TreeNode node = tree.deserialize("1,null,2");
-        String s = tree.serialize(node);
-        System.out.println(s);
+        /**
+         * 前序遍历
+         *     1
+         *    / \
+         *   2   3
+         *      / \
+         *     4   5
+         * 序列化结果：1,2,null,null,3,4,null,5,null,
+         */
+    
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            if (root == null) {
+                return "null";
+            }
+            StringBuilder res = new StringBuilder();
+            preOrder(root, res);
+            return res.toString();
+        }
+    
+        private void preOrder(TreeNode node, StringBuilder builder) {
+            if (node == null) {
+                builder.append("null,");
+                return;
+            }
+            builder.append(node.val).append(",");
+            preOrder(node.left, builder);
+            preOrder(node.right, builder);
+        }
+    
+        
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            if (data.equals("null")) {
+                return null;
+            }
+            String[] values = data.split(",");
+            return deserialize(values);
+        }
+    
+        /**
+         * 此处 index 应该定义为全局变量，因为在 deserialize 递归函数中，index 应该是始终连续的
+         * 比如 root.right = deserialize(values) 递归完后，index 为 5，那么在执行 root.right = deserialize(values)
+         * 时，index 也必须为 5
+         */
+        int index = 0;
+        private TreeNode deserialize(String[] values) {
+            if (values[index].equals("null")) {
+                index++;
+                return null;
+            }
+            TreeNode root = new TreeNode(Integer.parseInt(values[index]));
+            index++;
+            root.left = deserialize(values);
+            root.right = deserialize(values);
+            return root;
+        }
     }
+
 }
