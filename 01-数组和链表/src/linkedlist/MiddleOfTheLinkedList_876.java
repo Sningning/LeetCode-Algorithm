@@ -35,12 +35,27 @@ public class MiddleOfTheLinkedList_876 {
      * 1 -> 2 -> 3 -> 4 -> 5 -> 6
      * 应该返回 4，slow 应该指向 4，此时 fast 指向 null；
      *
-     * 因此，循环终止的条件是 fast == null 或者 fast.next == null
+     * 因此，循环终止的条件是 fast == null（保证偶数个时是靠右侧元素） 或者 fast.next == null（保证奇数个时是中间元素）
      */
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+
+    /**
+     * 如果为偶数时，取靠左的中间结点，则
+     * 循环终止的条件是 fast.next.next == null（保证偶数个时是靠左侧元素） 或者 fast.next == null（保证奇数个时是中间元素）
+     */
+    public ListNode middleNode1(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
