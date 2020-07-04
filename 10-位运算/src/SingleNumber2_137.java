@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * 137. 只出现一次的数字 II
@@ -20,15 +21,36 @@ import java.util.Arrays;
  */
 public class SingleNumber2_137 {
 
+
     /**
      * 可以使用哈希表，先遍历数组，记录每个数出现的次数，再遍历 map，找到只出现一次的数字。
-     * 时间复杂度 O(N); 空间复杂度：O(N)。简单，不再写代码。
-     *
+     * 时间复杂度 O(N); 空间复杂度：O(N)。
+     */
+    static class Solution1 {
+        public int singleNumber(int[] nums) {
+            HashMap<Integer, Boolean> map = new HashMap<>();
+            for (int num : nums) {
+                if (map.containsKey(num)) {
+                    map.put(num, false);
+                } else {
+                    map.put(num, true);
+                }
+            }
+            for (int num : map.keySet()) {
+                if (map.get(num)) {
+                    return num;
+                }
+            }
+            return -1;
+        }
+    }
+
+    /**
      * 还可以排序，如果一个数和前后都不相等，该数就是要找的数字。
      * 排序的做法需要单独判断第一位和最后一位。
      * 时间复杂度：O(NlogN)；空间复杂度：O(1)
      */
-    static class Solution1 {
+    static class Solution2 {
         public int singleNumber(int[] nums) {
             Arrays.sort(nums);
             int len = nums.length;
@@ -53,7 +75,7 @@ public class SingleNumber2_137 {
      *     如果不能被 3 整除，那个只出现一次的数字的二进制表示中对应的那一位为 1。
      * 时间复杂度：O(N)；空间复杂度：O(1)
      */
-    static class Solution2 {
+    static class Solution3 {
         public int singleNumber(int[] nums) {
             int res = 0;
             // int 32位
