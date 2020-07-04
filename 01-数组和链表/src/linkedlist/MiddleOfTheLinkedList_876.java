@@ -1,4 +1,4 @@
-import linkedlist.ListNode;
+package linkedlist;
 
 /**
  * 876. 链表的中间结点
