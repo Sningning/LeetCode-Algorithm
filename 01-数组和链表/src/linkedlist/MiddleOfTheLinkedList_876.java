@@ -1,3 +1,5 @@
+import linkedlist.ListNode;
+
 /**
  * 876. 链表的中间结点
  * 给定一个带有头结点 head 的非空单链表，返回链表的中间结点。

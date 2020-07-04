@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 589. N 叉树的前序遍历【简单】
  * 给定一个 N 叉树，返回其节点值的前序遍历。

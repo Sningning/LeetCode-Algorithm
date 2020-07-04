@@ -1,3 +1,8 @@
+package linkedlist;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * 160. 相交链表
  * 编写一个程序，找到两个单链表相交的起始节点。
